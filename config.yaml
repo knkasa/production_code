@@ -1,0 +1,10 @@
+monitoring: False
+model: model1
+data:
+  file: california_housing_dataset.parquet  #データセット
+model1:
+  save_model: False
+  n_process: 1
+  verbose: -1
+model2:
+  xxxx: True
