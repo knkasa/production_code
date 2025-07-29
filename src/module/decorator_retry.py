@@ -10,7 +10,7 @@ def retry(max_try:int=3, delay:int=10, exceptions=(RuntimeError, TimeoutError)):
             while tries < max_try:
                 try:
                     return func(*args, **kwargs)
-                except exceptions as e:
+                except Exception as e:
                     tries += 1
                     if tries==max_try:
                         raise e
