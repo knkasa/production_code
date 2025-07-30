@@ -115,6 +115,23 @@ class LightGBMRegressorTuner:
         try:
             logger.info("Creating model with best params.")
 
+            params = {
+                "objective": "regression",
+                "metric": "rmse",
+                "verbosity": self.verbose,
+                "boosting_type": "gbdt",
+                "max_depth": self.best_params['max_depth'],
+                #"num_leaves": trial.suggest_int("num_leaves", 20, 200),
+                "learning_rate": self.best_params['mlearning_rate'],
+                "n_estimators": 10_000,
+                "min_child_samples": 10,
+                "subsample": 0.9,
+                "colsample_bytree": 0.9,
+                "reg_alpha": self.best_params['reg_alpha'],
+                "reg_lambda": self.best_params['reg_lambda'],
+                "random_state": self.random_state
+                }
+            
             X_tr, X_val, y_tr, y_val = train_test_split(
                 self.X_train, self.y_train, test_size=self.test_size, random_state=self.random_state
                 )
