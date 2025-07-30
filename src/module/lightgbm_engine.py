@@ -26,6 +26,10 @@ class LightGBMRegressorTuner:
     y_train: pd.Series = None
     y_test: pd.Series = None
 
+    #def __post_init__(self): # This is equivalent to __init__
+    #    if X_train < 0:
+    #        raise ValueError
+
     def preprocessing(self, df_input:pd.DataFrame, target_series:pd.Series, config:dict) -> None:
         """モデル構築の事前準備"""
         try:
