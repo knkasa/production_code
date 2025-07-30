@@ -60,6 +60,7 @@ class LightGBMRegressorTuner:
                 "colsample_bytree": 0.9,
                 "reg_alpha": trial.suggest_float("reg_alpha", 0.1, 10.0),
                 "reg_lambda": trial.suggest_float("reg_lambda", 0.1, 100.0),
+                "random_state": self.random_state
                 }
 
             kf = KFold(n_splits=5, shuffle=True, random_state=self.random_state)
