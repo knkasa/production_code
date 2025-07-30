@@ -119,7 +119,7 @@ class LightGBMRegressorTuner:
             X_tr_scaled = scaler.fit_transform(X_tr)
             X_val_scaled = scaler.transform(X_val)
 
-            model = lgb.LGBMRegressor(**self.best_params)
+            model = lgb.LGBMRegressor(**params)
 
             model.fit(
                 X_tr_scaled, y_tr,
